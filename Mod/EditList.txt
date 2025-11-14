@@ -1,0 +1,5 @@
+RedeemCode:增加作弊码,增加过期码
+EventHelper:活动以14天为一个周期轮换上场
+PurchaseHelper:破解内购
+SynthModuleArea:增加5个模块位置
+ComputeArea:数量为2的整数倍(就近取整)
