@@ -1,6 +1,7 @@
 set GameDir=F:\SteamLibrary\steamapps\common\Unnamed Space Idle
 set DistDir=.\Origin
 
+set File0=game_data.cdb
 set File1=PurchaseHelper
 set File2=RedeemCode
 set File3=EventHelper
@@ -16,6 +17,7 @@ set Path5=interface/compute
 ren "%GameDir%\SpaceIdle.pck.bak" "SpaceIdle.bak.pck" || ren "%GameDir%\SpaceIdle.pck" "SpaceIdle.bak.pck"
 
 ..\gdre_tools --headless --extract="%GameDir%\SpaceIdle.bak.pck" ^
+--include="%File0%" ^
 --include="%Path1%/%File1%.gdc" ^
 --include="%Path2%/%File2%.gdc" ^
 --include="%Path3%/%File3%.gdc" ^

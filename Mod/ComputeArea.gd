@@ -10,7 +10,6 @@ var auto_optimizing = false
 var auto_salvaging = false
 var auto_compute_powering = false
 var max_reached = false
-const available_player_compute = roundEven(PlayerInfo.stats.compute_power)
 
 const MAX_GOAL: float = pow(10, 22)
 
@@ -48,7 +47,7 @@ const FIGHTER_OPTIMIZE_ORDER = ["CFEfficiency", "CFDamage", "CFDurabtility", "CF
 func _ready():
     max_reached = false
     PlayerInfo.compute_area = self
-    available = available_player_compute
+    available = get_compute_power()
     btn_optimize.visible = false
     chk_auto_optimize.visible = false
     chk_auto_salvage.visible = false
@@ -59,6 +58,8 @@ func _ready():
     add_to_group("compute_vm_salvage_max_upgrade_listener")
     add_to_group("after_load_setup")
 
+func get_compute_power():
+    return ceil(PlayerInfo.stats.compute_power / 2) * 2
 
 func calc_available_compute():
     var compute_used = 0
@@ -68,10 +69,10 @@ func calc_available_compute():
     for pm in get_tree().get_nodes_in_group("compute_consumption"):
         compute_used += pm.compute_allocated
 
-    available = max(0, available_player_compute - compute_used)
+    available = max(0, get_compute_power() - compute_used)
 
     if compute_label:
-        compute_label.text = tr("Compute Power") + ": " + NumberUtils.format_number(floor(available), 2, 2) + "/" + NumberUtils.format_number(floor(available_player_compute), 2, 2)
+        compute_label.text = tr("Compute Power") + ": " + NumberUtils.format_number(floor(available), 2, 2) + "/" + NumberUtils.format_number(get_compute_power(), 2, 2)
         var ttv = "LabelImportant" if floor(available) > 0 else ""
         Themes.set_theme_type_variation(compute_label, ttv)
 

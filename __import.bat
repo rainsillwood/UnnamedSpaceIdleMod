@@ -1,6 +1,7 @@
 set GameDir=F:\SteamLibrary\steamapps\common\Unnamed Space Idle
 set SrcDir=.\Mod
 
+set File0=game_data.cdb
 set File1=PurchaseHelper
 set File2=RedeemCode
 set File3=EventHelper
@@ -22,6 +23,7 @@ set Path5=interface/compute
 ren "%GameDir%\SpaceIdle.pck.bak" "SpaceIdle.bak.pck"
 
 ..\gdre_tools --headless --pck-patch="%GameDir%\SpaceIdle.bak.pck" ^
+--patch-file="%SrcDir%\%File0%"="%File0%" ^
 --patch-file="%SrcDir%\%File1%.gdc"="%Path1%/%File1%.gdc" ^
 --patch-file="%SrcDir%\%File2%.gdc"="%Path2%/%File2%.gdc" ^
 --patch-file="%SrcDir%\%File3%.gdc"="%Path3%/%File3%.gdc" ^
