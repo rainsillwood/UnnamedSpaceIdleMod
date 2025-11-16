@@ -12,16 +12,6 @@ var skin_acquired_previous_event: Array = []
 func _ready():
     add_to_group("after_load_setup")
     setup_events()
-    const start_day_second = floor(PlayerInfo.run_start_time / 86400) * 86400 + 86400
-    const now_day_second = floor(Time.get_unix_time_from_system() / 86400) * 86400
-    const during_second = 14 * 86400 * events.size()
-    const round = max(0, floor((now_day_second - start_day_second) / during_second))
-    const event_second = start_day_second + round * during_second
-    var i = 0
-    for key in events:
-        events[key].start_date = Time.get_date_dict_from_unix_time(event_second + 86400 * 14 * i)
-        events[key].end_date = Time.get_date_dict_from_unix_time(event_second + 86400 * 14 * (i + 1) - 1)
-        i = i + 1
 
 func after_load_setup():
     start_stop_events()
@@ -50,7 +40,7 @@ func setup_events():
                     }, 
                 "end_date":
                     {
-                        "year": 2025, 
+                        "year": 2026, 
                         "month": Time.MONTH_JANUARY, 
                         "day": 5, 
                         "hour": 23, 
@@ -97,6 +87,14 @@ func setup_events():
                 "key_nodes": {}
             }
     }
+    var event_name = events.keys()
+    var during_day = 15
+    var total_day = during_day * event_name.size()
+    var event_start = floor(floor(Time.get_unix_time_from_system() / 86400) / total_day) * total_day
+    for i in range(event_name.size()):
+        var event = events[event_name[i]]
+        event.start_date = Time.get_datetime_dict_from_unix_time((event_start + during_day * i) * 86400)
+        event.end_date = Time.get_datetime_dict_from_unix_time((event_start + during_day * (i + 1)) * 86400 - 1)
 
 func get_time_left(event_in):
     return Time.get_unix_time_from_datetime_dict(events[event_in].end_date) - Time.get_unix_time_from_datetime_dict(Time.get_datetime_dict_from_system())

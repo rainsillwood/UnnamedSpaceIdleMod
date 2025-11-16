@@ -1,6 +1,24 @@
-RedeemCode:增加作弊码,增加过期兑换码
-EventHelper:活动以14天为一个周期轮换上场
-PurchaseHelper:破解内购
-SynthModuleArea:增加5个模块位置
-ComputeArea:数量为2的整数倍(就近取整)
-game_data:修改自动使用三件套,去除debuff,4级0cd
+RedeemCode:
+	增加过期兑换码的兑换
+	增加可以无限使用的作弊码(作弊码破坏平衡,详见codelist.js)
+
+EnergyVoid:
+	将点击虚空能量时立刻获得的虚空能量从3分钟的当前净收入改为void_power_generation*void_power_conversion_max*energy_void_power_gain(破坏平衡,把虚空能量上限堆高以后基本不需要投入虚空物质都能4x超载)
+
+EventHelper:
+	以一个活动15天为周期轮换活动,周期开始时间为UTC0秒
+
+PurchaseHelper:
+	破解内购
+
+SynthModuleArea:
+	增加5个模块位置,注意是在启用时临时增加5的判定上限,因此开游戏的时候会关掉超过上限的,需要重新开启(破坏平衡,本人为了启用几个自动化模块改的)
+
+ComputeArea:
+	将算力以2的倍数向上取整(基本平衡,最多临时多出1的算力,本人强迫症)
+
+game_data:
+	修改自动使用三件套,去除debuff,1-4级减少CD,4级时0CD(破坏平衡)
+
+SaveLoad:
+	导入导出存档均不进行gzip和base64,直接导出JSON

@@ -4,17 +4,20 @@ whywastherenotalaunchcode
 somuchforoctober
 awardwinning100k
 somuchforoctoberer
-ireallyneedextraAIPointstoaffordthenewsplicedcrewupgrade
-alligotforhalloweenwasthislameskin
-isolemnlysweariwasinsector60to68andgottoonerfed
+
 retrofix
 ineedaipointsforloadouts
 'merica
-iminr1orr2andyounerfedmyoverdrive
 spacemas
 idlerfest
 eggs
 likeag6
+alligotforhalloweenwasthislameskin  
+
+iminr1orr2andyounerfedmyoverdrive
+isolemnlysweariwasinsector60to68andgottoonerfed
+ireallyneedextraAIPointstoaffordthenewsplicedcrewupgrade
+
 secret
 now
 113107
@@ -36,10 +39,12 @@ const codelist = {
   'idlerfest': { 'AIPoint': 300 },
   'eggs': { 'AIPoint': 200 },
   'likeag6': { 'BasePrestige': 1, 'AIPoint': 150 },
-  'wwssadadklkl': { 'ExtraRetrofit': 30 },
   'showmethemoney': { 'AIPoint': 1000 },
-  'operationcwal': { 'TimeSkip6Hours': 1 },
-  'somethingfornothing': { 'BasePrestige': 1 },
-  'xmas': { 'Giftium': 1 },
-  'anniversary': { 'Yearium': 1 },
+  'foodforthought': { 'ExtraRetrofit': 10 },
+  'modifythephasevariance': { 'BasePrestige': 10 },
+  'operationcwal': { 'TimeSkip6Hours': 10 },
+  'somethingfornothing': { 'MasteryRespec': 10 },
+  'medievalman': { 'SleeveReset': 10 },
+  'whatsmineismine': { 'Giftium': 1 },
+  'breathedeep': { 'Yearium': 1 },
 };
