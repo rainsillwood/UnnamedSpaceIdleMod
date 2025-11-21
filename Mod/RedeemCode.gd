@@ -14,6 +14,115 @@ func _ready():
 const CODE_URL = "https://api.spaceidle.xyz/enter_code/"
 
 var active_code = ""
+var code_list = {
+    "registerbonusyo": {
+        "AIPoint": 100
+    },
+    "whywastherenotalaunchcode": {
+        "AIPoint": 200
+    },
+    "somuchforoctober": {
+        "AIPoint": 150,
+        "TimeSkip6Hours": 1
+    },
+    "awardwinning100k": {
+        "BasePrestige": 1,
+        "ExtraRetrofit": 1,
+        "AIPoint": 125
+    },
+    "somuchforoctoberer": {
+        "AIPoint": 175,
+        "TimeSkip6Hours": 1
+    },
+    "ireallyneedextraaipointstoaffordthenewsplicedcrewupgrade": {
+        "AIPoint": 200
+    },
+    "alligotforhalloweenwasthislameskin": {
+        "Skin": "haunted"
+    },
+    "isolemnlysweariwasinsector60to68andgottoonerfed": {
+        "ExtraRetrofit": 1,
+        "AIPoint": 300
+    },
+    "retrofix": {
+        "ExtraRetrofit": 1,
+        "AIPoint": 300
+    },
+    "ineedaipointsforloadouts": {
+        "AIPoint": 200
+    },
+    "'merica": {
+        "AIPoint": 250
+    },
+    "iminr1orr2andyounerfedmyoverdrive": {
+        "TimeSkip6Hours": 1
+    },
+    "spacemas": {
+        "AIPoint": 250
+    },
+    "idlerfest": {
+        "AIPoint": 300
+    },
+    "eggs": {
+        "AIPoint": 200
+    },
+    "likeag6": {
+        "BasePrestige": 1,
+        "AIPoint": 150
+    },
+    "mediumrareplease": {
+        "Cheat": 1,
+        "Pulverium": 1000
+    },
+    "<censored>": {
+        "Cheat": 1,
+        "Fortifium": 1000
+    },
+    "givemelibertyorgivemecoin": {
+        "Cheat": 1,
+        "Adaptium": 1000
+    },
+    "tradeplz": {
+        "Cheat": 1,
+        "WarpEssence": 10
+    },
+    "socialmedia": {
+        "Cheat": 1,
+        "": 1
+    },
+    "nova&orion": {
+        "Cheat": 1,
+        "AIPoint": 100
+    },
+    "whatsmineismine": {
+        "Cheat": 1,
+        "Salvage": 10000
+    },
+    "breathedeep": {
+        "Cheat": 1,
+        "VoidMatter": 10000
+    },
+    "cheesesteakjimmy's": {
+        "Cheat": 1,
+        "ExtraRetrofit": 10
+    },
+    "lumberjack": {
+        "Cheat": 1,
+        "BasePrestige": 10
+    },
+    "rockon": {
+        "Cheat": 1,
+        "SleeveReset": 10
+    },
+    "robinhood": {
+        "Cheat": 1,
+        "MasteryRespec": 10
+    },
+    "awholelotoflove": {
+        "Cheat": 1,
+        "TimeSkip6Hours": 1
+    }
+}
 
 func check_code(code):
 
@@ -37,16 +146,12 @@ func _on_HTTPRequestCode_request_completed(_result, response_code, _headers, bod
     le_code_entry.editable = true
     btn_paste_code.disabled = false
     print("code response: " + str(response_code))
-    const codelist = {'registerbonusyo': { 'AIPoint': 100 },'whywastherenotalaunchcode': { 'AIPoint': 200 },'somuchforoctober': { 'AIPoint': 150, 'TimeSkip6Hours': 1 },'awardwinning100k': { 'BasePrestige': 1, 'ExtraRetrofit': 1, 'AIPoint': 125 },'somuchforoctoberer': { 'AIPoint': 175, 'TimeSkip6Hours': 1 },'ireallyneedextraaipointstoaffordthenewsplicedcrewupgrade': { 'AIPoint': 200 },'alligotforhalloweenwasthislameskin': { 'Skin': 'haunted' },'isolemnlysweariwasinsector60to68andgottoonerfed': { 'ExtraRetrofit': 1, 'AIPoint': 300 },'retrofix': { 'ExtraRetrofit': 1, 'AIPoint': 300 },'ineedaipointsforloadouts': { 'AIPoint': 200 },"'merica": { 'AIPoint': 250 },'iminr1orr2andyounerfedmyoverdrive': { 'TimeSkip6Hours': 1 },'spacemas': { 'AIPoint': 250 },'idlerfest': { 'AIPoint': 300 },'eggs': { 'AIPoint': 200 },'likeag6': { 'BasePrestige': 1, 'AIPoint': 150 },'showmethemoney': { 'AIPoint': 1000 },'foodforthought': { 'ExtraRetrofit': 10 },'modifythephasevariance': { 'BasePrestige': 10 },'operationcwal': { 'TimeSkip6Hours': 10 },'somethingfornothing': { 'MasteryRespec': 10 },'medievalman': { 'SleeveReset': 10 },'whatsmineismine': { 'Giftium': 1 },'breathedeep': { 'Yearium': 1 }}
-    if response_code == 200 or codelist[active_code] != null:
+    if response_code == 200 or code_list.has(active_code):
         var test_json_conv = JSON.new()
-        var json_parse = {}
-        if response_code == 200:
-            test_json_conv.parse(body.get_string_from_utf8())
-            json_parse = test_json_conv.get_data()
-        else:
-            json_parse = codelist[active_code]
+        test_json_conv.parse(body.get_string_from_utf8())
+        var json_parse = test_json_conv.get_data() if response_code == 200 else code_list[active_code]
         lbl_result.text = tr("Redeemed") + "\n"
+        var base = 1
         for r in json_parse:
             if r == "Purchase":
                 var purchase_node = PurchaseHelper.find_purchase_node_by_steam_or_internal_item_id(json_parse[r])
@@ -58,15 +163,17 @@ func _on_HTTPRequestCode_request_completed(_result, response_code, _headers, bod
                 Themes.grant_skin(json_parse[r])
             elif r == "Theme":
                 Themes.grant_theme(json_parse[r])
+            elif r == "Cheat":
+                lbl_result.text = tr("Cheated") + "\n"
+                base = json_parse[r]
             elif "Unlock" in r:
                 PlayerInfo.handle_unlock(r, json_parse[r])
             else:
-                PlayerInfo.gain_resource(r, json_parse[r])
+                PlayerInfo.gain_resource(r, json_parse[r] * (base ** PlayerInfo.misc_stats["highest_sector_total"]))
                 lbl_result.text += "%d: %s\n" % [json_parse[r], db.resource_data[r].name]
-        if active_code in "showmethemoney|foodforthought|modifythephasevariance|operationcwal|somethingfornothing|medievalman|whatsmineismine|breathedeep":
-            lbl_result.text += tr("Cheating")
-        else:
-            PlayerInfo.codes_used.push_front(active_code)
+        if not json_parse.has('Cheat'):
+            return
+        PlayerInfo.codes_used.push_front(active_code)
         if active_code == "isolemnlysweariwasinsector60to68andgottoonerfed":
             if PlayerInfo.misc_stats["highest_sector_total"] < 60 or PlayerInfo.misc_stats["highest_sector_total"] > 69:
                 lbl_result.text += tr("I can't believe you would lie to a text box")

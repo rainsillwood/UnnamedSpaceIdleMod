@@ -1,0 +1,113 @@
+{
+    "registerbonusyo": {
+        "AIPoint": 100
+    },
+    "whywastherenotalaunchcode": {
+        "AIPoint": 200
+    },
+    "somuchforoctober": {
+        "AIPoint": 150,
+        "TimeSkip6Hours": 1
+    },
+    "awardwinning100k": {
+        "BasePrestige": 1,
+        "ExtraRetrofit": 1,
+        "AIPoint": 125
+    },
+    "somuchforoctoberer": {
+        "AIPoint": 175,
+        "TimeSkip6Hours": 1
+    },
+    "ireallyneedextraaipointstoaffordthenewsplicedcrewupgrade": {
+        "AIPoint": 200
+    },
+    "alligotforhalloweenwasthislameskin": {
+        "Skin": "haunted"
+    },
+    "isolemnlysweariwasinsector60to68andgottoonerfed": {
+        "ExtraRetrofit": 1,
+        "AIPoint": 300
+    },
+    "retrofix": {
+        "ExtraRetrofit": 1,
+        "AIPoint": 300
+    },
+    "ineedaipointsforloadouts": {
+        "AIPoint": 200
+    },
+    "'merica": {
+        "AIPoint": 250
+    },
+    "iminr1orr2andyounerfedmyoverdrive": {
+        "TimeSkip6Hours": 1
+    },
+    "spacemas": {
+        "AIPoint": 250
+    },
+    "idlerfest": {
+        "AIPoint": 300
+    },
+    "eggs": {
+        "AIPoint": 200
+    },
+    "likeag6": {
+        "BasePrestige": 1,
+        "AIPoint": 150
+    },
+    "mediumrareplease": {
+        "Cheat": 1,
+        "Pulverium": 10000
+    },
+    "<censored>": {
+        "Cheat": 1,
+        "Fortifium": 10000
+    },
+    "givemelibertyorgivemecoin": {
+        "Cheat": 1,
+        "Adaptium": 10000
+    },
+    "nova&orion": {
+        "Cheat": 1,
+        "": 10000
+    },
+    "tradeplz": {
+        "Cheat": 1,
+        "": 10000
+    },
+    "socialmedia": {
+        "Cheat": 1,
+        "": 10000
+    },
+    "whatsmineismine": {
+        "Cheat": 1,
+        "Salvage": 10000
+    },
+    "breathedeep": {
+        "Cheat": 1,
+        "VoidMatter": 10000
+    },
+    "1": {
+        "Cheat": 1,
+        "AIPoint": 10000
+    },
+    "operationcwal": {
+        "Cheat": 1,
+        "ExtraRetrofit": 10
+    },
+    "modifythephasevariance": {
+        "Cheat": 1,
+        "BasePrestige": 10
+    },
+    "medievalman": {
+        "Cheat": 1,
+        "SleeveReset": 10
+    },
+    "somethingfornothing": {
+        "Cheat": 1,
+        "MasteryRespec": 10
+    },
+    "2": {
+        "Cheat": 1,
+        "TimeSkip6Hours": 10
+    }
+}

@@ -36,6 +36,7 @@ func handle_click():
         Input.set_default_cursor_shape(old_cursor_shape)
         if "ReactorArea" in PlayerInfo.unlocked_sections:
             PlayerInfo.resources["Power"] += PlayerInfo.stats.void_power_generation * PlayerInfo.stats["void_power_conversion_max"] * PlayerInfo.stats.energy_void_power_gain
+            PlayerInfo.resources["VoidMatter"] -= PlayerInfo.stats["void_power_conversion_max"]
 
         PlayerInfo.trigger_ability("VoidEnergyBoost", true)
         taken = true

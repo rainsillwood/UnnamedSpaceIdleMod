@@ -31,6 +31,8 @@ var module_order = []
 var module_auto_crafting: String = ""
 var resources_for_next_auto: Array = []
 
+const extra_slot = 5
+
 
 func _ready() -> void :
     set_slots()
@@ -123,7 +125,7 @@ func check_and_activate(module_to_activate: SynthModuleSlot, activate: bool):
 
     if activate:
 
-        if _num_modules_active < PlayerInfo.stats["max_active_module_slots"] + 5 and module_to_activate.level > 0:
+        if _num_modules_active < PlayerInfo.stats["max_active_module_slots"] + extra_slot and module_to_activate.level > 0:
             PlayerInfo.loadouts_area.update_equipped_loadout_status(Enums.SystemName.SYNTH)
             AudioManager.play_interface_sound("toggle_on")
             module_to_activate.active = activate

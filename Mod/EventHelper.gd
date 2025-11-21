@@ -40,7 +40,7 @@ func setup_events():
                     }, 
                 "end_date":
                     {
-                        "year": 2026, 
+                        "year": 2025, 
                         "month": Time.MONTH_JANUARY, 
                         "day": 5, 
                         "hour": 23, 
@@ -94,7 +94,7 @@ func setup_events():
     for i in range(event_name.size()):
         var event = events[event_name[i]]
         event.start_date = Time.get_datetime_dict_from_unix_time((event_start + during_day * i) * 86400)
-        event.end_date = Time.get_datetime_dict_from_unix_time((event_start + during_day * (i + 1)) * 86400 - 1)
+        event.end_date = Time.get_datetime_dict_from_unix_time((event_start + during_day * (i + 1) - 1) * 86400 - 1)
 
 func get_time_left(event_in):
     return Time.get_unix_time_from_datetime_dict(events[event_in].end_date) - Time.get_unix_time_from_datetime_dict(Time.get_datetime_dict_from_system())
