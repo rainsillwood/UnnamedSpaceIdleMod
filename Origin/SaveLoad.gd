@@ -555,7 +555,10 @@ func load_game():
 
 
 func reload_game():
-    read_file_and_prep_load()
+
+
+    if !read_file_and_prep_load() and file_to_load != "new_game":
+        return
     print("%s reload game start" % Time.get_ticks_msec())
 
     if not check_save_not_corrupt(file_to_load) and !loading_old:
