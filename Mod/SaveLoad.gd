@@ -557,7 +557,7 @@ func load_game():
 func reload_game():
 
 
-    if !read_file_and_prep_load() and file_to_load != "new_game":
+    if !read_file_and_prep_load() and ".txt" in file_to_load:
         return
     print("%s reload game start" % Time.get_ticks_msec())
 
