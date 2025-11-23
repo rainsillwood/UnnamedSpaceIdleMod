@@ -171,7 +171,7 @@ func _on_HTTPRequestCode_request_completed(_result, response_code, _headers, bod
             else:
                 PlayerInfo.gain_resource(r, json_parse[r] * (base ** PlayerInfo.misc_stats["highest_sector_total"]))
                 lbl_result.text += "%d: %s\n" % [json_parse[r], db.resource_data[r].name]
-        if not json_parse.has('Cheat'):
+        if json_parse.has('Cheat'):
             return
         PlayerInfo.codes_used.push_front(active_code)
         if active_code == "isolemnlysweariwasinsector60to68andgottoonerfed":
