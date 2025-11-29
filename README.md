@@ -40,6 +40,26 @@ a whole lot of love
 
 7.game_data:
 - 修改自动使用三件套,去除debuff,1-4级增加持续时间,4级时持续时间=CD(破坏平衡)
+- 修改活动奖励:
+```
+1 Yearium = 5min加速 + 2AIPoint
+1 Giftium = 5min加速 + 2AIPoint
+```
+- 增加合成无限升级,需要配合LimitedUpgradeButton,否则无法使用
+```
+1 AIPoint = 
+    5min加速
+    30min资源加速
+    20min合成加速
+    20min研究加速
+    15min基地加速
+    15min跃迁加速
+    15min船员加速
+    15min舰队加速
+```
 
 8.SaveLoad:
 - 导入导出存档均不进行gzip和base64,直接导出JSON
+
+9.LimitedUpgradeButton
+- 修改升级逻辑,当最大等级为0时,修改最大等级为int32,同时重置等级
