@@ -296,7 +296,7 @@ func upgrade_confirmed(amount = 1, play_sound = true):
                 AudioManager.play_interface_sound("upgrade_click")
                 sound_played = true
             PlayerInfo.deduct_cost(next_cost)
-            if stats.max_level = 2147483647:
+            if stats.max_level == 2147483647:
                 amount_have = 0
             do_upgrade()
             get_next_cost()
