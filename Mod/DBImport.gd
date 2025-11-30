@@ -453,7 +453,7 @@ func set_data():
             ]
             sheet.lines.append_array(injectArray)
         if sheet.name == "modules":
-            var effect = {
+            var effectDuration = {
                 "target": "",
                 "base_effect": 0,
                 "modifier_type": "Multiplicative",
@@ -467,6 +467,20 @@ func set_data():
                 "formula_mod": "",
                 "mod_target": "",
                 "expression_connections": []
+            }
+            var effectSlot = {
+                "target": "max_active_module_slots",
+                "base_effect": 0,
+                "modifier_type": "Flat",
+                "self_multiplicative": false,
+                "global_hook": "",
+                "direct_connection": "level",
+                "connection_type": "Self",
+                "expression": "1",
+                "direct_connection2": "",
+                "expression_connections": [],
+                "formula_mod": "",
+                "mod_target": ""
             }
             var data = {
                 "LaserBoostAutoUse": {
@@ -482,17 +496,22 @@ func set_data():
                     "number": 2.7
                 }
             }
-            for line in sheet["lines"]:
+            for line in sheet.lines:
                 if line.id in ["LaserBoostAutoUse", "VolleyAutoUse", "ShieldBoostAutoUse"]:
                     line.tiers[0].effect[1].expression = "[x]*.05"
-                    effect.target = data[line.id].key
-                    effect.expression = "-.1+([x]*" + str(data[line.id].number) + ")"
-                    line.tiers[0].effect.append(effect.duplicate_deep())
+                    effectDuration.target = data[line.id].key
+                    effectDuration.expression = "-.1+([x]*" + str(data[line.id].number) + ")"
+                    line.tiers[0].effect.append(effectDuration.duplicate_deep())
+                    line.tiers[0].effect.append(effectSlot.duplicate_deep())
                     line.tiers[1].effect[1].expression = ".15+([x]*.1)"
-                    effect.expression = str(3 * data[line.id].number - 0.1)
-                    line.tiers[1].effect.append(effect.duplicate_deep())
+                    effectDuration.expression = str(3 * data[line.id].number - 0.1)
+                    line.tiers[1].effect.append(effectDuration.duplicate_deep())
+                    line.tiers[1].effect.append(effectSlot.duplicate_deep())
                     line.tiers[2].effect[1].expression = ".45+([x]*.15)"
-                    line.tiers[2].effect.append(effect.duplicate_deep())
+                    line.tiers[2].effect.append(effectDuration.duplicate_deep())
+                    line.tiers[2].effect.append(effectSlot.duplicate_deep())
+                if line.id in ["SalvageAutoCollector", "VoidEnergyAutoCollector", "VoidBeacon", "VoidLure"]:
+                    line.tiers[0].effect.append(effectSlot.duplicate_deep())
     data_read.close()
     full_data = data_cdb
     for sheet in data_cdb["sheets"]:

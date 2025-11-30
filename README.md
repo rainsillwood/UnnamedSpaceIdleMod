@@ -32,14 +32,19 @@ a whole lot of love
 4.PurchaseHelper:
 - 破解内购
 
-5.SynthModuleArea:
-- 增加5个模块位置,注意是在启用时临时增加5的判定上限,因此开游戏的时候会关掉超过上限的,需要重新开启(破坏平衡,本人为了启用几个自动化模块改的)
-
-6.ComputeArea:
+5.ComputeArea:
 - 将算力以2的倍数向上取整(基本平衡,最多临时多出1的算力,本人强迫症)
 
-7.DBImport:
-- 修改自动使用三件套,去除debuff,1-4级增加持续时间,4级时持续时间=CD(破坏平衡)
+6.DBImport:
+- 修改自动使用三件套LaserBoostAutoUse/VolleyAutoUse/ShieldBoostAutoUse,去除debuff,增加模块位置,1-4级增加持续时间,4级时持续时间=CD(破坏平衡)
+- 修改自动收集四件套SalvageAutoCollector/VoidEnergyAutoCollector/VoidBeacon/VoidLure,增加模块位置
+- 增加新资源TimeFlux,1点相当于1ms离线时间
+- 修改活动奖励:
+```
+2 Giftium = 300000 TimeFlux
+2 Yearium = 300000 TimeFlux
+Spaceversary其他兑换奖励均变为 1125000 TimeString
+```
 - 增加合成无限升级,需要配合LimitedUpgradeButton,SynthPointsArea,否则无法使用
 ```
 21600000 TimeFlux = 1 * 6h时间加速
@@ -52,19 +57,13 @@ a whole lot of love
 10min船员加速 = 93750 TimeFlux
 10min舰队加速 = 125000 TimeFlux
 ```
-- 增加新资源TimeFlux,1点相当于1ms离线时间
-- 修改活动奖励:
-```
-2 Giftium = 300000 TimeFlux
-2 Yearium = 300000 TimeFlux
-Spaceversary其他兑换奖励均变为 1125000 TimeString
-```
 
-8.SaveLoad:
+7.SaveLoad:
 - 导入导出存档均不进行gzip和base64,直接导出JSON
 
-9.LimitedUpgradeButton
-- 修改升级逻辑,当最大等级为0时,修改最大等级为int32,同时重置等级
+8.LimitedUpgradeButton
+- 修改逻辑,当最大等级为0时,修改最大等级为int32,并标记为无限升级
+- 当被标记为无限升级时,升级的时候会重置等级
 
 10.SynthPointsArea
 - 在合成升级界面加上TimeFlux显示

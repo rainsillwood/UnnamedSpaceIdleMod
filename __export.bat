@@ -8,13 +8,12 @@ set numFilex=1
 set File1=SaveLoad
 set File2=RedeemCode
 set File3=EventHelper
-set File4=SynthModuleArea
+set File4=SynthPointsArea
 set File5=ComputeArea
 set File6=EnergyVoid
 set File7=LimitedUpgradeButton
 set File8=PurchaseHelper
 set File9=DBImport
-set File10=SynthPointsArea
 
 set Path1=
 set Path2=interface/
@@ -25,9 +24,8 @@ set Path6=battle/
 set Path7=upgrades/
 set Path8=purchase/
 set Path9=
-set Path10=interface/synth/
 
-set numFile=10
+set numFile=9
 
 ren "%GameDir%\SpaceIdle.pck.bak" "SpaceIdle.bak.pck" || ren "%GameDir%\SpaceIdle.pck" "SpaceIdle.bak.pck"
 
