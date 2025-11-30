@@ -11,7 +11,7 @@ func _ready():
 func _process(_delta):
     text = tr("Synth Points") + ": " + NumberUtils.format_number(PlayerInfo.resources["SynthPoint"], 2)
     text = text + "\n" + tr("Time Left") + ": "
-    var arrayTimes = [1000, 60, 60, 1]
+    var arrayTimes = [1000, 60, 60, 2147483647]
     var arrayUnit = ["", ".", ":", ":"]
     var numTime = int(PlayerInfo.resources["TimeFlux"])
     var strTime = ""
