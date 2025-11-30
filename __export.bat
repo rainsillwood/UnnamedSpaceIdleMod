@@ -46,4 +46,3 @@ for /l %%i in (1,1,%numFile%) do (
 )
 endlocal
 
-pause

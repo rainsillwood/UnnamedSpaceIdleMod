@@ -45,4 +45,3 @@ for /l %%i in (1,1,%numFile%) do (
 endlocal
 ren "%GameDir%\SpaceIdle.bak.pck" "SpaceIdle.pck.bak"
 
-pause
