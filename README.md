@@ -38,24 +38,26 @@ a whole lot of love
 6.ComputeArea:
 - 将算力以2的倍数向上取整(基本平衡,最多临时多出1的算力,本人强迫症)
 
-7.game_data:
+7.DBImport:
 - 修改自动使用三件套,去除debuff,1-4级增加持续时间,4级时持续时间=CD(破坏平衡)
+- 增加合成无限升级,需要配合LimitedUpgradeButton,SynthPointsArea,否则无法使用
+```
+21600000 TimeFlux = 1 * 6h时间加速
+10min时间加速 = 600000 TimeFlux
+10min资源加速 = 46875 TimeFlux
+10min合成加速 = 62500 TimeFlux
+10min研究加速 = 75000 TimeFlux
+10min基地加速 = 93750 TimeFlux
+10min跃迁加速 = 93750 TimeFlux
+10min船员加速 = 93750 TimeFlux
+10min舰队加速 = 125000 TimeFlux
+```
+- 增加新资源TimeFlux,1点相当于1ms离线时间
 - 修改活动奖励:
 ```
-1 Yearium = 5min加速 + 2AIPoint
-1 Giftium = 5min加速 + 2AIPoint
-```
-- 增加合成无限升级,需要配合LimitedUpgradeButton,否则无法使用
-```
-1 AIPoint = 
-    5min加速
-    30min资源加速
-    20min合成加速
-    20min研究加速
-    15min基地加速
-    15min跃迁加速
-    15min船员加速
-    15min舰队加速
+2 Giftium = 300000 TimeFlux
+2 Yearium = 300000 TimeFlux
+Spaceversary其他兑换奖励均变为 1125000 TimeString
 ```
 
 8.SaveLoad:
@@ -63,3 +65,6 @@ a whole lot of love
 
 9.LimitedUpgradeButton
 - 修改升级逻辑,当最大等级为0时,修改最大等级为int32,同时重置等级
+
+10.SynthPointsArea
+- 在合成升级界面加上TimeFlux显示
