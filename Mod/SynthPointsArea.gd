@@ -13,7 +13,7 @@ func _process(_delta):
     text = text + "\n" + tr("Time Left") + ": "
     var arrayTimes = [1000, 60, 60, 1]
     var arrayUnit = ["", ".", ":", ":"]
-    var numTime = int(PlayerInfo.resources["TimeString"])
+    var numTime = int(PlayerInfo.resources["TimeFlux"])
     var strTime = ""
     for i in range(4):
         strTime = str(numTime % arrayTimes[i]) + arrayUnit[i] + strTime
