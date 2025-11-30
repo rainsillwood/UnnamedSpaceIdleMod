@@ -38,12 +38,10 @@ signal upgrade_notify
 var _is_tracking_press = false
 var _prev_pos
 var _ignore_next_release = false
-var _is_unlimited = false
 
 func _ready() -> void:
     super ()
     if stats.max_level == 0:
-        _is_unlimited = true
         stats.max_level = 2147483647
     style_partial.set_border_color("#ffdc54")
     style_partial.set_border_width_all(4)
@@ -298,7 +296,7 @@ func upgrade_confirmed(amount = 1, play_sound = true):
                 AudioManager.play_interface_sound("upgrade_click")
                 sound_played = true
             PlayerInfo.deduct_cost(next_cost)
-            if _is_unlimited:
+            if stats.max_level = 2147483647:
                 amount_have = 0
             do_upgrade()
             get_next_cost()
