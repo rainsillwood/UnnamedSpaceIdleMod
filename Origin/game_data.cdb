@@ -200539,7 +200539,7 @@
 					"highlight_node": "ODPowercell2",
 					"require_node_click": false,
 					"offset_vector": "",
-					"text": "Once you have unlocked a new Cell, the next loop will include the upgrades in this Cell also. The cells will fill one after the other, not at the same time.",
+					"text": "Cells will fill one after the other, not at the same time. You need to fill all unlocked cells to complete a loop.",
 					"next_text": "powercells_move4"
 				},
 				{

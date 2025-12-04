@@ -460,11 +460,11 @@ func load_game():
     last_time = Time.get_ticks_usec()
 
 
-
     Crew.after_load_setup()
     Splice.after_load_setup()
     load_times["crew_stuff"] = Time.get_ticks_usec() - last_time
     last_time = Time.get_ticks_usec()
+
 
     Warps.after_load_setup()
     Warps.normal_warp_area.warp_cores.update_cores_available()
@@ -539,6 +539,7 @@ func load_game():
     PlayerInfo.calc_upgrade("crew_skill")
     for n in get_tree().get_nodes_in_group("crew_skill_upgrade_listener"):
         n.process_upgrade()
+    ReactorController.after_load_setup()
     Warps.normal_warp_area.jump_locations.update_reward_labels()
     load_times["load_finish_4"] = Time.get_ticks_usec() - last_time
     last_time = Time.get_ticks_usec()
