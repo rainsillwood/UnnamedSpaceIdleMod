@@ -43,7 +43,7 @@ a whole lot of love
 ```
 2 Giftium = 300000 TimeFlux
 2 Yearium = 300000 TimeFlux
-Spaceversary其他兑换奖励均变为 1125000 TimeString
+Spaceversary其他兑换奖励均变为 1125000 TimeString (7.5x)
 ```
 - 增加合成无限升级,需要配合LimitedUpgradeButton,SynthPointsArea,否则无法使用
 ```
@@ -67,3 +67,11 @@ Spaceversary其他兑换奖励均变为 1125000 TimeString
 
 10.SynthPointsArea
 - 在合成升级界面加上TimeFlux显示
+
+Todo:
+- 修改算力分配时冻结时间,分配完毕以后开始(强迫症
+- 修改两个自动收集装置到T1,原T2/T3模块改为增幅收集效果
+- 修改虚空风暴持续时间
+- Spaceversary其他兑换奖励加成变为原来的12.5倍效果,封顶8级
+- Yearium其他兑换奖励加成变为原来的12.5倍效果,封顶8级
+- 修改转生为翻新
